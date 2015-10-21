@@ -1,0 +1,21 @@
+{
+  "name": "survey-infographic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server www -p 4000",
+    "build": "jade views -o www; browserify -v -t babelify lib/index.js -o www/js/index.js; stylus styles/index.styl -o www/css/styles.css",
+    "watch": "jade views -o www -w | watchify -v -t babelify lib/index.js -o www/js/index.js | stylus styles/index.styl -w -o www/css/styles.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "http-server": "^0.8.5",
+    "jade": "^1.11.0",
+    "stylus": "^0.52.4",
+    "watchify": "^3.4.0"
+  }
+}
