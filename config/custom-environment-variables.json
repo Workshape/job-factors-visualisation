@@ -1,0 +1,7 @@
+{
+    "port"     : "PORT",
+    "typeform" : {
+        "key" : "TYPEFORM_KEY",
+        "id"  : "TYPEFORM_ID"
+    }
+}
