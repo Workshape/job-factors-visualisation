@@ -1,0 +1,27 @@
+.tooltip
+    border-radius()
+    background color-black
+    position absolute
+    padding 15px
+    transform translateX(-50%)
+    margin-top 20px
+    z-index 99
+    color color-white
+    text-align center
+    font-size 11px
+    font-weight 100
+
+    &:after
+        tail(color-black, 'top', 5px)
+        content ''
+        position absolute
+        bottom 100%
+        left 50%
+        
+    h5
+        font-size 15px
+        font-weight bold
+        margin-bottom 5px
+
+    span
+        font-weight normal

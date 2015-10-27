@@ -6,3 +6,41 @@ debullet()
 
 border-radius(rad = 3px)
     border-radius rad
+
+tail(color, dir = 'bottom', size = 10px)
+
+    if dir == 'bottom'
+        dir = 'top'
+        margin-left (- size)
+        top 100%
+        left 50%
+
+     else if dir == 'top'
+        dir = 'bottom'
+        margin-left (- size)
+        bottom 100%
+        left 50%
+
+     else if dir == 'left'
+        dir = 'right'
+        margin-top (- size)
+        right 100%
+        top 50%
+
+     else if dir == 'right'
+        dir = 'left'
+        margin-top (- size)
+        left 100%
+        top 50%
+
+    border size solid transparent
+    border-{dir}-color color
+
+smooth-font(state = null)
+
+    if (state == false)
+        font-smoothing subpixel-antialiased
+        -moz-osx-font-smoothing auto
+    else
+        font-smoothing antialiased
+        -moz-osx-font-smoothing grayscale

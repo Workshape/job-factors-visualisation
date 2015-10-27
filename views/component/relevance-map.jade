@@ -1,5 +1,18 @@
 .relevance-map
 
+    .tooltip(v-follow-mouse, v-if='hovered')
+        h5 {{ hovered.name }}
+
+        template(v-if='!hovered.data')
+            span.empty No data
+
+        template(v-if='hovered.data')
+            span Count: 
+            | {{ hovered.data.count }}
+            br
+            span Average: 
+            | {{ hovered.data.average | floor }}/10
+
     ul.keys
         li(v-for='k in keys', :class='{ active: key === k.id }', v-on:click='key = k.id') {{ k.label }}
 
