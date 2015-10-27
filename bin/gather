@@ -1,0 +1,66 @@
+#! /usr/local/bin/node
+
+var config = require('config'),
+    request = require('request'),
+    color = require('cli-color'),
+    fs = require('fs');
+
+var currentPage = 0,
+    responses = [],
+    total;
+
+function next() {
+    var typeformConfig = config.get('typeform'),
+        key = typeformConfig.key,
+        formId = typeformConfig.id,
+        requestUrl = 'https://api.typeform.com/v0/form/' + formId  + '?key=' + key + '&completed=true&offset=' + 1000 * currentPage;
+
+    console.log(color.cyan('Requesting page ' + currentPage + ' of ' + (total ? Math.floor(total / 1000) : '[?]')));
+
+    request.get(requestUrl, function (err, response, body) {
+        var data;
+
+        if (err) { return next(err); }
+
+        if (response.statusCode !== 200) {
+            return onError(new ResponseError('Error ' + response.statusCode));
+        }
+
+        try {
+            data = JSON.parse(body);
+        } catch (e) {
+            return onError(new ResponseError('Invalid response data'));
+        }
+
+        if (data.stats.responses.total) {
+            total = data.stats.responses.completed;
+        }
+
+        responses = responses.concat(data.responses);
+
+        if (data.stats.responses.showing) {
+            currentPage++;
+            next();
+        } else {
+            console.log(color.green('Writing to disk..'));
+
+            fs.writeFileSync('./data/responses.json', JSON.stringify({
+                questions : data.questions,
+                responses : responses
+            }), 'utf8');
+        }
+    });
+}
+
+function ResponseError(message) {
+    this.name = 'ResponseError';
+    Error.call(this, message);
+    Error.captureStackTrace(this, arguments.callee);
+}
+
+function onError(err) {
+    console.error(color.red(err));
+    process.exit();
+}
+
+next();

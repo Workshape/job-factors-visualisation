@@ -1,50 +1,17 @@
-var config = require('config'),
-    request = require('request'),
-    color = require('cli-color');
+var fs = require('fs');
 
-var CACHE_LIFETIME = 1000 * 60 * 60,
-    cache;
-
-function ResponseError(message) {
-    this.name = 'ResponseError';
-    Error.call(this, message);
-    Error.captureStackTrace(this, arguments.callee);
-}
+var RESPONSES_PATH = './data/responses.json';
 
 module.exports = function (req, res, next) {
-    var typeformConfig = config.get('typeform'),
-        key = typeformConfig.key,
-        formId = typeformConfig.id,
-        now = new Date().getTime(),
-        requestUrl = 'https://api.typeform.com/v0/form/' + formId  + '?key=' + key + '&completed=true';
+    fs.exists(RESPONSES_PATH, function (exists) {
+        if (exists) {
+            fs.readFile(RESPONSES_PATH, 'utf8', function (err, content) {
+                if (err) { return next(err); }
 
-    if (cache && now - cache.time < CACHE_LIFETIME) {
-        console.log(color.yellow('Serving from cache..'));
-        return res.status(200).send({ data: cache.data });
-    }
-
-    console.log(color.yellow('Loading from TypeForm..'));
-
-    request.get(requestUrl, function (err, response, body) {
-        var data;
-
-        if (err) { return next(err); }
-
-        if (response.statusCode !== 200) {
-            return next(new ResponseError('Error ' + response.statusCode));
+                res.status(200).send({ data: JSON.parse(content) });
+            });
+        } else {
+            res.status(404).send('Data not available');
         }
-
-        try {
-            data = JSON.parse(body);
-        } catch (e) {
-            return next(new ResponseError('Invalid response data'));
-        }
-
-        cache = {
-            time : now,
-            data : data
-        };
-
-        res.status(200).send({ data: data });
     });
 };

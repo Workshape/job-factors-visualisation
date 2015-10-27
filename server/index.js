@@ -8,6 +8,7 @@ var app = express(),
 
 app.get('/', require('./controller/main'));
 app.get('/api/responses', require('./controller/responses'));
+app.use('/static', express.static('./www'));
 
 function listen() {
     console.log('Listening on ' + color.cyan('http://localhost:' + server.address().port));

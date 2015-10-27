@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/index.js",
-    "build": "jade views -o www; browserify -v -t babelify lib/index.js -o www/js/index.js; stylus styles/index.styl -o www/css/styles.css",
-    "watch": "jade views -o www -w | watchify -v -t babelify lib/index.js -o www/js/index.js | stylus styles/index.styl -w -o www/css/styles.css"
+    "gather": "./bin/gather",
+    "build": "jade views -o www; browserify -v -t babelify -t browserify-plain-jade lib/index.js -o www/js/index.js; stylus styles/index.styl -o www/css/styles.css",
+    "watch": "jade views -o www -w | watchify -v -t babelify -t browserify-plain-jade lib/index.js -o www/js/index.js | stylus styles/index.styl -w -o www/css/styles.css"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +15,17 @@
     "api-service": "^1.0.6",
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
+    "browserify-plain-jade": "^0.2.2",
     "cli-color": "^1.1.0",
+    "color": "^0.10.1",
     "config": "^1.16.0",
+    "d3": "^3.5.6",
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "request": "^2.65.0",
     "stylus": "^0.52.4",
+    "topojson": "^1.6.19",
+    "vue": "^1.0.0",
     "watchify": "^3.4.0"
   }
 }

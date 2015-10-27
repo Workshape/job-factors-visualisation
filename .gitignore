@@ -6,3 +6,4 @@ www/css/styles.css
 www/js/index.js
 npm-debug.log
 config/local.json
+data/*.json

@@ -1,0 +1,6 @@
+.relevance-map
+
+    ul.keys
+        li(v-for='k in keys', :class='{ active: key === k.id }', v-on:click='key = k.id') {{ k.label }}
+
+    .map: svg
