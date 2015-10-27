@@ -14,20 +14,43 @@
 
     path
         transition fill .2s
+        stroke-width .4
+        transition opacity .2s
+        opacity .2
 
-    .keys
+        &.has-data
+            opacity 1
+
+    &.hovered, path.has-data
+        opacity .8
+        
+        &:hover
+            opacity 1
+
+    &.selected path
+        opacity .2
+
+        &.active
+            opacity 1
+
+    ul.nav
         debullet()
+        clearfix()
         text-align center
 
         li
-            display inline-block
-            padding 10px 12px
+            display block
+            float left
+            padding 10px 5px
             background color-black
             cursor pointer
             color color-white
             font-weight 100
             transition background .2s
-            font-size 13px
+            font-size 12px
+            position relative
+            width (100% / 11)
+            box-sizing border-box
 
             border-right 1px solid rgba(color-white, .1)
 
@@ -43,3 +66,25 @@
 
             &.active
                 background color-brand
+
+            .count
+                border-radius(100%)
+                width 30px
+                height @width
+                line-height @width
+                position absolute
+                top 100%
+                color color-white
+                background color-black
+                margin-top 3px
+                left 50%
+                transform translateX(-50%)
+                font-size 8px
+                font-weight normal
+
+                // &:after
+                //     tail(color-black, 'top', 5px)
+                //     content ''
+                //     position absolute
+                //     bottom 100%
+                //     left 50%
