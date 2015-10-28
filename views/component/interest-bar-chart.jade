@@ -1,0 +1,12 @@
+.interest-bar-chart(:class='{ horizontal: horizontal }')
+
+    template(v-if='bars')
+
+    ul.labels
+
+        li(v-for='bar in bars'): label {{ bar.label }}
+
+    ul.bars
+
+        li(v-for='bar in bars')
+            .inner: .fill(:style='horizontal ? { width : bar.percent } : { height: bar.percent }')

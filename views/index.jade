@@ -13,10 +13,52 @@ html
 
         .loading(v-if='!ready')
 
-        section(v-if='ready'): .page-width
+        template(v-if='ready')
 
-            h2.center Relevance Distribution
+            section: .page-width
 
-            relevance-map(key='salary')
+                h2.center Gender Split
+
+                .row
+
+                    .col-6
+                        h6.center Male
+                        interest-bar-chart.gender-m(:filter='{ experience: "Under 1 year" }')
+
+                    .col-6
+                        h6.center 1-4 years
+                        interest-bar-chart.gender-f(:filter='{ experience: "1-4 years" }')
+
+            section: .page-width
+
+                h2.center Seniority Split
+
+                .row-10
+
+                    .col-2
+                        h6.center Under 1 year
+                        interest-bar-chart.seniority-1(:filter='{ experience: "Under 1 year" }')
+
+                    .col-2
+                        h6.center 1-4 years
+                        interest-bar-chart.seniority-2(:filter='{ experience: "1-4 years" }')
+
+                    .col-2
+                        h6.center 4-7 years
+                        interest-bar-chart.seniority-3(:filter='{ experience: "4-7 years" }')
+
+                    .col-2
+                        h6.center 7-10 years
+                        interest-bar-chart.seniority-4(:filter='{ experience: "7-10 years" }')
+
+                    .col-2
+                        h6.center 10+ years
+                        interest-bar-chart.seniority-5(:filter='{ experience: "10+ years" }')
+
+            section: .page-width
+
+                h2.center Relevance Distribution
+
+                relevance-map(key='salary')
 
         script(src='/static/js/index.js', type='text/javascript')

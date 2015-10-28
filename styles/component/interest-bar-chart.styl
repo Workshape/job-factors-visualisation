@@ -1,0 +1,82 @@
+bar-chart-color(base-color = color-brand)
+    ul.bars li .inner .fill
+        background base-color
+
+.interest-bar-chart
+    bar-chart-color()
+
+    ul
+        debullet()
+
+    li
+        width (100% / 11)
+        height 100%
+        float left
+
+    label
+        transform rotate(-45deg)
+        font-size 12px
+        text-align left
+        width 100px
+        transform-origin 0 50%
+        margin-top 30px
+        margin-bottom 3px
+        margin-left 50%
+
+    ul.bars
+        height 300px
+
+        .inner
+            border-radius()
+            margin-right 1px
+            height 100%
+            overflow hidden
+            // background rgba(color-black, .05)
+
+            .fill
+                border-radius()
+
+    &.horizontal
+
+        ul li
+            width 100%
+            float left
+            height 30px
+            margin-bottom 1px
+
+        label
+            transform none
+            text-align right
+            margin-left 0
+            margin-top 10px
+            margin-bottom 5px
+            padding-right 10px
+            width auto
+
+        ul.bars, ul.labels
+            float left
+
+        ul.labels
+            width 30%
+            text-align right
+
+        ul.bars
+            width 70%
+
+            .inner .fill
+                height 100%
+
+    &.seniority-1
+        bar-chart-color(color-alternate)
+
+    &.seniority-2
+        bar-chart-color(mix(color-alternate, color-brand, 75%))
+
+    &.seniority-3
+        bar-chart-color(mix(color-alternate, color-brand, 50%))
+
+    &.seniority-4
+        bar-chart-color(mix(color-alternate, color-brand, 25%))
+
+    &.gender-m
+        bar-chart-color(lightblue)

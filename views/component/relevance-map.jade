@@ -20,9 +20,9 @@
 
         ul
             template
-            li.low {{ comparative ? "Lowest interest" : "0/10" }}
-            li.mid {{ comparative ? "Average interest" : "5/10" }}
-            li.high {{ comparative ? "Highest interest" : "10/10" }}
+            li.low {{ comparative ? "Lowest interest" : "Avg. rating 0/10" }}
+            li.mid {{ comparative ? "Average interest" : "Avg. rating 5/10" }}
+            li.high {{ comparative ? "Highest interest" : "Avg. rating 10/10" }}
             li Insufficient data
 
     p.selection(:class='{ empty: !active }')
