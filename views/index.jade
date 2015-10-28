@@ -21,44 +21,52 @@ html
 
                 .row
 
-                    .col-6
-                        h6.center Male
-                        interest-bar-chart.gender-m(:filter='{ experience: "Under 1 year" }')
-
-                    .col-6
-                        h6.center 1-4 years
-                        interest-bar-chart.gender-f(:filter='{ experience: "1-4 years" }')
+                    interest-bar-chart(
+                        :filters='[ { gender: "Male" }, { gender: "Female" } ]',
+                        :classes='[ "gender-male", "gender-female" ]'
+                        )
 
             section: .page-width
 
                 h2.center Seniority Split
 
-                .row-10
+                .row
 
-                    .col-2
-                        h6.center Under 1 year
-                        interest-bar-chart.seniority-1(:filter='{ experience: "Under 1 year" }')
+                    interest-bar-chart(
+                        :filters='[ { experience: "Under 1 year" }, { experience: "1-4 years" }, { experience: "4-7 years" }, { experience: "7-10 years" }, { experience: "10+ years" } ]',
+                        :classes='[ "seniority-1", "seniority-2", "seniority-3", "seniority-4", "seniority-5" ]'
+                        )
 
-                    .col-2
-                        h6.center 1-4 years
-                        interest-bar-chart.seniority-2(:filter='{ experience: "1-4 years" }')
+        //-     section: .page-width
 
-                    .col-2
-                        h6.center 4-7 years
-                        interest-bar-chart.seniority-3(:filter='{ experience: "4-7 years" }')
+        //-         h2.center Seniority Split
 
-                    .col-2
-                        h6.center 7-10 years
-                        interest-bar-chart.seniority-4(:filter='{ experience: "7-10 years" }')
+        //-         .row-10
 
-                    .col-2
-                        h6.center 10+ years
-                        interest-bar-chart.seniority-5(:filter='{ experience: "10+ years" }')
+        //-             .col-2
+        //-                 h6.center Under 1 year
+        //-                 interest-bar-chart.seniority-1(:filter='{ experience: "Under 1 year" }')
 
-            section: .page-width
+        //-             .col-2
+        //-                 h6.center 1-4 years
+        //-                 interest-bar-chart.seniority-2(:filter='{ experience: "1-4 years" }')
 
-                h2.center Relevance Distribution
+        //-             .col-2
+        //-                 h6.center 4-7 years
+        //-                 interest-bar-chart.seniority-3(:filter='{ experience: "4-7 years" }')
 
-                relevance-map(key='salary')
+        //-             .col-2
+        //-                 h6.center 7-10 years
+        //-                 interest-bar-chart.seniority-4(:filter='{ experience: "7-10 years" }')
+
+        //-             .col-2
+        //-                 h6.center 10+ years
+        //-                 interest-bar-chart.seniority-5(:filter='{ experience: "10+ years" }')
+
+        //-     section: .page-width
+
+        //-         h2.center Relevance Distribution
+
+        //-         relevance-map(key='salary')
 
         script(src='/static/js/index.js', type='text/javascript')

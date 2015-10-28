@@ -1,0 +1,18 @@
+.bar-chart(:class='{ horizontal: horizontal }')
+
+    ul.labels(v-if='labels')
+
+        li(v-for='label in labels', :style='horizontal ? { height: 100 / maxLength + "%" } : { width: 100 / maxLength + "%" }')
+            label {{ label }}
+
+    ul.bars(v-if='groups')
+
+        li(v-for='group in groups', :style='horizontal ? { height: 100 / maxLength + "%" } : { width: 100 / maxLength + "%" }')
+
+            .bar(
+                v-for='(i, bar) in group',
+                :style='horizontal ? { height: 100 / this.sets.length + "%" } : { width: 100 / this.sets.length + "%" }',
+                :class='bar.class'
+                )
+
+                .fill(:style='horizontal ? { width: bar.percent } : { height: bar.percent }')
