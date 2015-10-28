@@ -14,8 +14,23 @@ h1, h2, h3, h4, h5, h6
     font-weight 300
     text-transform uppercase
 
+label
+    display block
+    margin-top 0
+    margin-bottom 10px
+
+    &:last-child
+        margin-bottom 0
+
 .center
     text-align center
+
+i
+    position relative
+    display inline-block
+
+a
+    cursor pointer
 
 h1
     font-size 45px
@@ -35,6 +50,13 @@ h5
 h6
     font-size 25px
 
-span.empty
+.empty
     font-style italic
-    opacity .6
+    opacity .8
+    font-weight 100
+
+a.close
+    color color-danger
+
+    &:after
+        content '\d7'
