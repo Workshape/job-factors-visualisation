@@ -14,12 +14,11 @@
             li(:class='{ active: comparative }', v-on:click='comparative = true') Comparative
             li(:class='{ active: !comparative }', v-on:click='comparative = false') Absolute
 
-    .legend
+    .legend.box
 
         label Legend
 
         ul
-            template
             li.low {{ comparative ? "Lowest interest" : "Avg. rating 0/10" }}
             li.mid {{ comparative ? "Average interest" : "Avg. rating 5/10" }}
             li.high {{ comparative ? "Highest interest" : "Avg. rating 10/10" }}

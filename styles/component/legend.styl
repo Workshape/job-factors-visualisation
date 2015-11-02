@@ -1,0 +1,48 @@
+.legend
+    text-align center
+
+    ul
+        debullet()
+        font-size 12px
+        right 0
+
+        li
+            
+            &:before
+                border-radius()
+                content ''
+                width 10px
+                height @width
+                display inline-block
+                background color-grey
+                position relative
+                top 1px
+                margin-right 5px
+
+            &.high:before
+                background color-brand
+
+            &.mid:before
+                background mix(color-alternate, color-brand)
+
+            &.low:before
+                background color-alternate
+
+            &.gender-male:before
+                background color-gender-male
+
+            &.gender-other:before
+                background color-gender-other
+
+            &.gender-female:before
+                background color-gender-female
+
+    &.inline
+
+        ul
+            text-align center
+
+            li
+                display inline-block
+                margin 0 20px
+                font-size 14px

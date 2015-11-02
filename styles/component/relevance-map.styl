@@ -114,55 +114,14 @@ $colored-list
                 transition background .2s
 
     .legend, .mode-switcher
-        border-radius()
-        background rgba(color-black, .05)
-        padding 15px
         display inline-block
         width 180px
         text-align center
         position relative
         z-index 2
 
-        label
-            margin 0 -15px 15px
-            padding-bottom 10px
-            color color-grey-darker
-            font-size 12px
-            text-transform uppercase
-            border-bottom 1px solid color-ruler
-
-    .legend
-        float left
-        margin-right 20px
-
-        ul
-            debullet()
-            font-size 12px
-            right 0
-
-            li
-                
-                &:before
-                    border-radius()
-                    content ''
-                    width 10px
-                    height @width
-                    display inline-block
-                    background color-grey
-                    position relative
-                    top 1px
-                    margin-right 5px
-
-                &.high:before
-                    background color-brand
-
-                &.mid:before
-                    background mix(color-alternate, color-brand)
-
-                &.low:before
-                    background color-alternate
-
     .mode-switcher
+        @extend .box
         text-align center
         float right
         margin-left 20px
@@ -177,3 +136,7 @@ $colored-list
                 float left
                 padding 10px
                 box-sizing border-box
+
+    .legend
+        float left
+        margin-right 20px

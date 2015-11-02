@@ -1,3 +1,5 @@
+bar-height = 50px
+
 bar-chart-color(base-color = color-brand)
 
     .fill
@@ -5,6 +7,10 @@ bar-chart-color(base-color = color-brand)
 
 .bar-chart
     bar-chart-color()
+    margin-bottom 20px
+
+    &:last-child
+        margin-bottom 0
 
     ul
         debullet()
@@ -13,7 +19,7 @@ bar-chart-color(base-color = color-brand)
     li
         height 100%
         float left
-        padding 10px
+        padding 0 5px
         box-sizing border-box
 
     label
@@ -23,8 +29,10 @@ bar-chart-color(base-color = color-brand)
         width 100px
         transform-origin 0 50%
         margin-top 30px
-        margin-bottom 3px
         margin-left 50%
+
+    ul.labels
+        margin-bottom 10px
 
     ul.bars
         height 300px
@@ -43,22 +51,38 @@ bar-chart-color(base-color = color-brand)
                 border-radius()
                 width 100%
                 height 100%
+                position relative
+
+            span
+                color color-white
+                display block
+                width 100%
+                text-align center
+                font-size 10px
+                position absolute
+                left 0
+                bottom 5px
+                opacity .4
+                transition opacity .2s
+
+            &:hover .fill span
+                opacity 1
 
     &.horizontal
 
         ul li
             width 100%
             float left
-            height 30px
+            height bar-height
+            padding 5px 0
 
         label
             transform none
             text-align right
-            margin-left 0
-            margin-top 10px
-            margin-bottom 5px
             padding-right 10px
             width auto
+            line-height bar-height
+            margin 0
 
         ul.bars, ul.labels
             float left
@@ -76,13 +100,19 @@ bar-chart-color(base-color = color-brand)
                 .fill
                     height 100%
 
+                span
+                    display none
+
     .bar
 
         &.gender-male
-            bar-chart-color(color-lightblue)
+            bar-chart-color(color-gender-male)
 
         &.gender-female
-            bar-chart-color(color-pink)
+            bar-chart-color(color-gender-female)
+
+        &.gender-other
+            bar-chart-color(color-gender-other)
 
         &.seniority-1
             bar-chart-color(color-alternate)
