@@ -65,3 +65,7 @@ a.close
 
     &:after
         content '\d7'
+
+for key in colors-keys
+    .key-color-{key}
+        color darken(colors-keys[key], 20)

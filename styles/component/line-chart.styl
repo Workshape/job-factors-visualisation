@@ -1,0 +1,48 @@
+line-chart-color(key)
+
+    &.line-chart-{key} svg, svg .chart-group-{key}
+
+        .chart-line
+            stroke colors-keys[key]
+
+        .chart-point
+            fill colors-keys[key]
+
+.line-chart
+    for key in colors-keys
+        line-chart-color(key)
+
+    svg
+        font-size 10px
+
+        .chart-background
+            fill color-white
+
+        .chart-grid path
+            stroke rgba(color-black, .05)
+
+        .chart-line
+            stroke color-brand
+
+        .chart-point
+            fill color-brand
+
+        .chart-point-hover
+            fill transparent
+
+        .chart-label
+            fill color-grey-dark
+
+            &.chart-label-x
+                text-anchor middle
+                alignment-baseline hanging
+
+                &.first
+                    text-anchor start
+
+                &.last
+                    text-anchor end
+
+            &.chart-label-y
+                text-anchor end
+                alignment-baseline middle

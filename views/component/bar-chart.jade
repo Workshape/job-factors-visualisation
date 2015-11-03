@@ -3,6 +3,7 @@
     ul.labels(v-if='labels')
 
         li(v-for='label in labels', :style='horizontal ? null    : { width: 100 / maxLength + "%" }')
+            i(v-if='icons[$index]', :class='"icon-" + icons[$index]')
             label {{ label }}
 
     ul.bars(v-if='groups')
@@ -16,4 +17,4 @@
                 )
 
                 .fill(:style='horizontal ? { width: bar.percent } : { height: bar.percent }')
-                    span {{ bar.value |  floor 1 }}
+                    span {{ bar.value |  decimals 1 }}

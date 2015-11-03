@@ -17,6 +17,12 @@ html
 
             section: .page-width
 
+                h2.center Change over experience
+
+                seniority-charts(key='salary')
+
+            section: .page-width
+
                 h2.center Gender Split
 
                 .row
@@ -30,18 +36,6 @@ html
                         li.gender-male Male
                         li.gender-other Other
                         li.gender-female Female
-
-            section: .page-width
-
-                h2.center Seniority Split
-
-                .row
-
-                    interest-bar-chart(
-                        :filters='[ { experience: "Under 1 year" }, { experience: "1-4 years" }, { experience: "4-7 years" }, { experience: "7-10 years" }, { experience: "10+ years" } ]',
-                        :classes='[ "seniority-1", "seniority-2", "seniority-3", "seniority-4", "seniority-5" ]',
-                        :horizontal='true'
-                        )
 
             section: .page-width
 
