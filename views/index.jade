@@ -21,21 +21,45 @@ html
 
                 seniority-charts(key='salary')
 
-            section: .page-width
+            section.gender-distribution: .page-width
 
-                h2.center Gender Split
+                h2.center Gender Distribution
 
-                .row
+                p.center
+                    | Out of the 
+                    strong {{ totalResponses }} developers 
+                    | that took our survey, 
+                    span.text-gender-male {{ genderDistribution[0] }} 
+                    | identified as males, 
+                    span.text-gender-female {{ genderDistribution[1] }} 
+                    | as female and 
+                    span.text-gender-other {{ genderDistribution[2] }} 
+                    | as other.
 
-                    interest-bar-chart(
-                        :filters='[ { gender: "Male" }, { gender: "Other" }, { gender: "Female" } ]',
-                        :classes='[ "gender-male", "gender-other", "gender-female" ]'
-                        )
+                pie-chart(
+                    :values='genderDistribution',
+                    :classes='[ "gender-male", "gender-other", "gender-female" ]',
+                    :labels='[ "Male", "Other", "Female" ]'
+                    )
 
-                    .center: .legend.inline: ul
-                        li.gender-male Male
-                        li.gender-other Other
-                        li.gender-female Female
+                .center: .legend.inline: ul
+
+                    li.gender-male
+                        | Male 
+                        span ({{ genderDistribution[0] }})
+
+                    li.gender-other
+                        | Other 
+                        span ({{ genderDistribution[1] }})
+
+                    li.gender-female
+                        | Female 
+                        span ({{ genderDistribution[2] }})
+
+                interest-bar-chart(
+                    :filters='[ { gender: "Male" }, { gender: "Other" }, { gender: "Female" } ]',
+                    :classes='[ "gender-male", "gender-other", "gender-female" ]'
+                    )
 
             section: .page-width
 

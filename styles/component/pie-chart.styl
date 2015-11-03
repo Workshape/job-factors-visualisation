@@ -1,0 +1,41 @@
+.pie-chart
+    width 250px
+    max-width 100%
+    margin auto
+    margin-bottom 20px
+    position relative
+
+    &:after
+        content ''
+        position absolute
+        width 60%
+        height @width
+        left 50%
+        top 50%
+        transform translate(-50%, -50%)
+        background color-white
+        border-radius(100%)
+
+    &:last-child
+        margin-bottom 0
+
+    svg path
+        stroke color-white
+        stroke-width 1.5
+
+        &.gender-male
+            fill color-gender-male
+
+        &.gender-female
+            fill color-gender-female
+
+        &.gender-other
+            fill color-gender-other
+
+&:nth-child(odd) .pie-chart
+
+    &:after
+        background color-grey-lightest
+
+    svg path
+        stroke color-grey-lightest

@@ -1,0 +1,9 @@
+.pie-chart
+
+    .tooltip(v-follow-mouse, v-if='highlight')
+
+        h5(v-if='highlight.label') {{ highlight.label }}
+
+        label
+            strong {{ highlight.percent | decimals 2 }}% 
+            | ({{ highlight.value }})
