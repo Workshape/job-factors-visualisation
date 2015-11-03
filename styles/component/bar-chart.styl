@@ -43,6 +43,7 @@ bar-chart-color(base-color = color-brand)
         height 300px
 
         .bar
+            @extends $texture-overlay
             border-radius()
             padding-right 1px
             padding-bottom 1px
@@ -133,3 +134,15 @@ bar-chart-color(base-color = color-brand)
 
         &.seniority-4
             bar-chart-color(mix(color-alternate, color-brand, 25%))
+
+.interest-bar-chart-skills
+
+    .bar-chart
+        i = 0
+
+        for key in colors-keys
+
+            .bars li:nth-child({i}) .bar
+                bar-chart-color(colors-keys[key])
+
+            i = i + 1

@@ -1,11 +1,12 @@
 .pie-chart
+    @extends $texture-overlay
     width 250px
     max-width 100%
     margin auto
     margin-bottom 20px
     position relative
 
-    &:after
+    &:before
         content ''
         position absolute
         width 60%
@@ -34,7 +35,7 @@
 
 &:nth-child(odd) .pie-chart
 
-    &:after
+    &:before
         background color-grey-lightest
 
     svg path

@@ -1,31 +1,7 @@
-$colored-list
-    debullet()
-    clearfix()
-
-    li
-        transition background .2s
-        background color-black
-        border-right 1px solid rgba(color-white, .1)
-        color color-white
-        cursor pointer
-
-        &:first-child
-            border-radius(3px 0 0 3px)
-
-        &:last-child
-            border-radius(0 3px 3px 0)
-            border-right 0
-
-        &:hover
-            background mix(color-black, color-brand)
-
-        &.active
-            background color-brand
-            color rgba(color-white, .6)
-
 .relevance-map
 
     .map
+        @extends $texture-overlay
         border-radius 3px
         padding-bottom 70%
         position relative

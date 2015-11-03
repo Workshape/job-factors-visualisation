@@ -1,0 +1,43 @@
+$texture-overlay
+
+    if !@position
+        position relative
+    
+    &:after
+        bg-image('poly-texture', 800px 339px)
+        background-attachment fixed
+        mix-blend-mode: overlay
+        content ''
+        position absolute
+        left 0
+        top 0
+        width 100%
+        height 100%
+        opacity .1
+        pointer-events none
+
+$colored-list
+    debullet()
+    clearfix()
+
+    li
+        @extends $texture-overlay
+        transition background-color .2s
+        background-color color-black
+        border-right 1px solid rgba(color-white, .1)
+        color color-white
+        cursor pointer
+
+        &:first-child
+            border-radius(3px 0 0 3px)
+
+        &:last-child
+            border-radius(0 3px 3px 0)
+            border-right 0
+
+        &:hover
+            background-color mix(color-black, color-brand)
+
+        &.active
+            background-color color-brand
+            color rgba(color-white, .6)

@@ -17,6 +17,12 @@ html
 
             section: .page-width
 
+                h2.center Average Ratings
+
+                .interest-bar-chart-skills: interest-bar-chart(:filters='[ {} ]')
+
+            section: .page-width
+
                 h2.center Change over experience
 
                 seniority-charts(key='salary')
@@ -31,9 +37,9 @@ html
                     | that took our survey, 
                     span.text-gender-male {{ genderDistribution[0] }} 
                     | identified as males, 
-                    span.text-gender-female {{ genderDistribution[1] }} 
+                    span.text-gender-female {{ genderDistribution[2] }} 
                     | as female and 
-                    span.text-gender-other {{ genderDistribution[2] }} 
+                    span.text-gender-other {{ genderDistribution[1] }} 
                     | as other.
 
                 pie-chart(
