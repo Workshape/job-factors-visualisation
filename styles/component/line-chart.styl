@@ -5,6 +5,9 @@ line-chart-color(key)
         .chart-line
             stroke colors-keys[key]
 
+        .chart-area
+            fill rgba(colors-keys[key], .2)
+
         .chart-point
             fill colors-keys[key]
 
@@ -23,6 +26,10 @@ line-chart-color(key)
 
         .chart-line
             stroke color-brand
+            fill transparent
+
+        .chart-area
+            fill rgba(color-brand, .2)
 
         .chart-point
             fill color-brand

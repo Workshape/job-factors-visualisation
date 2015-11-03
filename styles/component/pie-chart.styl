@@ -6,6 +6,9 @@
     margin-bottom 20px
     position relative
 
+    &:after
+        border-radius(100%)
+
     &:before
         content ''
         position absolute
@@ -32,6 +35,21 @@
 
         &.gender-other
             fill color-gender-other
+
+         &.seniority-1
+            fill color-seniority-1
+
+        &.seniority-2
+            fill color-seniority-2
+
+        &.seniority-3
+            fill color-seniority-3
+
+        &.seniority-4
+            fill color-seniority-4
+
+        &.seniority-5
+            fill color-seniority-5
 
 &:nth-child(odd) .pie-chart
 

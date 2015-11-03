@@ -13,6 +13,20 @@
             template(v-if='i === changes.losses.length - 2')  and 
         |  tend to become less important.
 
+    p.center.
+        In order to provide a more exhaustive understanding of our 
+        demographic, here's how our data set distributed in years of 
+        experience:
+
+    .bar-chart-seniority: bar-chart(
+        v-if='distribution',
+        :values='distribution',
+        :labels='labels'
+        )
+
+    p.center.
+        And here's a breakdown of each factor we asked to rate:
+
     .chart(v-for='key in keys', v-if='lines')
 
         label.center
