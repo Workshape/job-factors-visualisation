@@ -4,12 +4,12 @@
         | By observing slight trend differences over several levels of seniority in our dataset we can observe that  
         template(v-for='(i, change) in changes.gains | orderBy "diff"')
             span.key(:class='"key-color-" + change.key.id') {{ change.key.label }}
-            template(v-if='i < changes.gains.length - 2'), 
+            template(v-if='i < changes.gains.length - 2') , 
             template(v-if='i === changes.gains.length - 2')  and 
         |  show an increase of interest over experience, while 
         template(v-for='(i, change) in changes.losses | orderBy "diff"')
             span.key(:class='"key-color-" + change.key.id') {{ change.key.label }}
-            template(v-if='i < changes.losses.length - 2'), 
+            template(v-if='i < changes.losses.length - 2') , 
             template(v-if='i === changes.losses.length - 2')  and 
         |  tend to become less important.
 
@@ -33,8 +33,7 @@
 
             i(:class='"icon-" + key.id')
 
-            span(:class='"key-color-" + key.id')
-                {{ key.label }} 
+            span(:class='"key-color-" + key.id') {{ key.label }} 
             span.dir(:class='getDir(key.id) === 1 ? "gain" : "loss"') {{ getDir(key.id) === 1 ? "gains" : "loses" }} 
             span.diff {{ getDiff(key.id) | decimals 2 }}/10 
             | interest points over time
