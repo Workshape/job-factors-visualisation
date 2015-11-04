@@ -15,9 +15,39 @@ html
 
         template(v-if='ready')
 
+            header
+
+                h1 Living Infographic
+                h2 The most important job factors for Developers
+
+            section: .page-width.center
+
+                h2 Preface
+
+                p At <a href='http://www.workshape.io' target='_blank'>Workshape.io</a>, we care deeply about what developers want from their career, and wanted to know better.
+
+                p So, we decided to ask them directly.
+
+                p Over the course of months, we asked developers to take a <a href='https://workshape.typeform.com/to/PrMLrh' target='_blank'>survey</a> and rate what factors they value the most when considering a job.
+
+                p Since we're never happy with the amount of data, we decided to make this living infographic, which pulls the updated data directly from TypeForm on a hourly basis.
+
+                p With many thanks to every single developer that completed the survey so far, we are happy to share this little page of insights with you.
+
+                hr
+
+                p Please note that this is still a relatively small data set ({{ totalResponses }} fully completed responses) which we are looking to expand, and as such may not be representative of every demographic and industry.
+
+                p We also care to specify that the infographic has been built by humble developers, without a data science background - It's not perfect, but we hope to improve upon its implementation and will welcome your feedback and objections.
+
+                p If you like what we're doing, help us get more spread by completing and sharing the <a href='https://workshape.typeform.com/to/PrMLrh' target='_blank'>survey</a>.
+
             section: .page-width
 
                 h2.center Average Ratings
+
+                p.center.
+                    Below are displayed the average ratings (Scored 1 to 10) split by category between all {{ totalResponses }} developers that completed the questionnaire.
 
                 .interest-bar-chart-skills: interest-bar-chart(:filters='[ {} ]')
 

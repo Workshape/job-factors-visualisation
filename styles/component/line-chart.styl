@@ -12,6 +12,11 @@ line-chart-color(key)
             fill colors-keys[key]
 
 .line-chart
+    @extends $texture-overlay
+
+    &:after
+        opacity .2
+
     for key in colors-keys
         line-chart-color(key)
 

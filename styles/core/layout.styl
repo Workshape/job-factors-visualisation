@@ -1,11 +1,28 @@
 body
     margin 0
     background color-white
+    
+    &:after
+        content ''
+        position fixed
+        width 100%
+        height 100%
+        padding-bottom 100%
+        left 0
+        top 50%
+        transform translateY(-50%)
+        background color-overlay-filter
+        background-image radial-gradient(lighten(color-overlay-filter, 20), darken(color-overlay-filter, 50) 100%)
+        opacity .07
+        z-index 9999999
+        pointer-events none
 
 section
+    background color-white
     padding 60px 0
     display block
     position relative
+    z-index 1
 
     &:nth-child(odd)
         background color-grey-lightest
@@ -41,3 +58,27 @@ section
 
     .legend
         margin-bottom 40px
+
+header
+    @extends $texture-overlay
+    padding 200px 0
+    background-color #222
+    text-align center
+    width 100%
+    left 0
+    top 0
+
+    h1, h2, h3
+        position relative
+        color color-white
+
+    h1
+        font-size 40px
+        font-weight bold
+
+    h2
+        font-size 25px
+        // font-weight bold
+
+    &:after
+        opacity .2
