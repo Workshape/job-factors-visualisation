@@ -15,12 +15,24 @@ html
 
         template(v-if='ready')
 
-            header
+            header(fixed-dist, full-height)
 
-                h1 Living Infographic
-                h2 The most important job factors for Developers
+                .gradient
 
-            section: .page-width.center
+                .inner(data-role='content')
+
+                    h1 Living Infographic
+                    h2 The most important job factors for Developers
+
+                .credits(data-role='credits')
+
+                    h3
+                        | Made with 
+                        span.heart &#10084; 
+                        | by 
+                        a.logo(href='http://www.workshape.io', target='_blank')
+
+            section(fixed-dist, full-height): .page-width.center
 
                 h2 Preface
 
@@ -42,7 +54,7 @@ html
 
                 p If you like what we're doing, help us get more spread by completing and sharing the <a href='https://workshape.typeform.com/to/PrMLrh' target='_blank'>survey</a>.
 
-            section: .page-width
+            section(fixed-dist, full-height): .page-width
 
                 h2.center Average Ratings
 
@@ -51,13 +63,13 @@ html
 
                 .interest-bar-chart-skills: interest-bar-chart(:filters='[ {} ]')
 
-            section: .page-width
+            section(fixed-dist, full-height): .page-width
 
                 h2.center Change over experience
 
                 seniority-charts(key='salary')
 
-            section.gender-distribution: .page-width
+            section.gender-distribution(fixed-dist): .page-width
 
                 h2.center Gender Distribution
 
@@ -97,7 +109,7 @@ html
                     :classes='[ "gender-male", "gender-other", "gender-female" ]'
                     )
 
-            section: .page-width
+            section(fixed-dist, full-height): .page-width
 
                 h2.center Relevance Distribution
 

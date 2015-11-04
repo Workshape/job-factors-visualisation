@@ -19,7 +19,7 @@ body
 
 section
     background color-white
-    padding 60px 0
+    padding 100px 0
     display block
     position relative
     z-index 1
@@ -59,18 +59,100 @@ section
     .legend
         margin-bottom 40px
 
+@-webkit-keyframes bg-gradient {
+
+    0% {
+        background-position 33% 0%
+    }
+
+    50% {
+        background-position 68% 100%
+    }
+
+    100% {
+        background-position:33% 0%
+    }
+
+}
+
+@-webkit-keyframes bg-texture {
+
+    0% {
+        background-position 0 0
+    }
+
+    100% {
+        background-position 800px 339px
+    }
+
+}
+
 header
     @extends $texture-overlay
-    padding 200px 0
     background-color #222
     text-align center
     width 100%
     left 0
     top 0
+    overflow hidden
+    position relative
+
+    &:after
+        opacity .15
+        mix-blend-mode multiply
+        animation bg-texture 30s infinite linear
+
+    .gradient
+        opacity .4
+
+        &:before, &:after
+            content ''
+            position absolute
+            left 0
+            top 0
+            width 100%
+            height 100%
+            background-size 800% 800%
+            animation bg-gradient 30s infinite alternate
+
+        &:before
+            background-image linear-gradient(90deg, #de20f1, #e89015, #ea243d, #5368bf)
+
+        &:after
+            background-image linear-gradient(0deg, #26bd96, #bd4926, #24ceea, #ddea24)
+
+    .inner, .credits
+        z-index 2
+
+    .inner
+        text-align center
+        width 100%
+        padding 200px 20px
+        position relative
+
+    .credits
+        position absolute
+        left 50%
+        top 50%
+        transform translate(-50%, -50%)
+
+        .heart
+            color color-brand
+
+        h3
+            text-transform none
+            font-size 15px
+
+        .logo
+            bg-image('logo-credits', contain, center center, no-repeat, 'svg')
+            width (480px / 1.5)
+            height (66px / 1.5)
+            display block
+            margin-right 30px
 
     h1, h2, h3
-        position relative
         color color-white
+        text-shadow 0 1px 2px rgba(#000, .5)
 
     h1
         font-size 40px
@@ -78,7 +160,4 @@ header
 
     h2
         font-size 25px
-        // font-weight bold
-
-    &:after
-        opacity .2
+        margin-bottom 0
