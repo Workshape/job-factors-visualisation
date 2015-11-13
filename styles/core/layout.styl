@@ -87,6 +87,7 @@ section
 
 }
 
+
 header
     @extends $texture-overlay
     background-color #222
@@ -100,7 +101,7 @@ header
     &:after
         opacity .15
         mix-blend-mode multiply
-        animation bg-texture 30s infinite linear
+        animation bg-texture 30s infinite linear, buzz 2s infinite linear
 
     .gradient
         opacity .4

@@ -1,0 +1,16 @@
+.countries-breakdown
+
+    ul.switch
+        li(:class='{ active: !reverse }', v-on:click='reverse = false') Highest
+        li(:class='{ active: reverse }', v-on:click='reverse = true') Lowest
+
+    ul.chart
+        li(v-for='country in chart | limit 10')
+
+            .bar(:style='{ width: country.score * 10 + "%", "background-color": country.color }')
+
+            .content
+                span.position {{ country.position }} 
+                span.flag(:class='"flag-" + country.code') 
+                span.name {{ country.name }} 
+                span.score (Avg. {{ country.score | decimals 2 }})

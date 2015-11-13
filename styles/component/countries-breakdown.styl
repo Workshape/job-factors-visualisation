@@ -1,0 +1,93 @@
+ul.countries-breakdowns-list
+    debullet()
+    clearfix()
+    margin 50px -20px 0
+
+    label
+        margin-bottom 20px
+
+        i
+            display block
+            font-size 30px
+            opacity .3
+            margin-bottom 10px
+
+    > li
+        float left
+        width 50%
+        padding 0 20px
+        margin-bottom 20px
+        box-sizing border-box
+
+    @media (max-width: breakpoint-mobile)
+        margin-left 0
+        margin-right 0
+
+        ul.chart
+            margin-bottom 30px
+
+        > li
+            width 100%
+            float none
+
+        ul.switch
+            position static
+            margin-bottom 20px
+
+.countries-breakdown
+    position relative
+    margin-bottom 20px
+
+    ul.switch
+        width 130px
+        margin auto
+        position absolute
+        top -10px
+        right 20px
+        z-index 2
+        
+        li
+            padding 6px
+            font-size 8px
+
+    ul.chart
+        @extends $texture-overlay
+        debullet()
+        border-radius()
+        text-align left
+        overflow hidden
+
+        li
+            padding 5px 10px
+            line-height 30px
+            background color-grey-light
+            overflow hidden
+            position relative
+
+            .bar
+                position absolute
+                left 0
+                top 0
+                height 100%
+                opacity .2
+
+            .content
+                position relative
+                z-index 1
+
+            &:nth-child(odd)
+                background color-grey-lighter
+
+            .position
+                opacity .3
+
+            .position, .score, .flag, .name
+                display inline-block
+                margin-right 10px
+
+            .flag
+                position relative
+                top 5px
+
+            .score
+                opacity .3

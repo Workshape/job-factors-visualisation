@@ -113,6 +113,30 @@ html
 
                 h2.center Relevance Distribution
 
+                p.center.
+                    The following interactive map helps you explore geographical trends of relevance based om the average values
+                    we've collected between all nations with 50+ responses.
+
                 relevance-map(key='salary')
+
+            section(fixed-dist, full-height): .page-width
+
+                h2.center Countries Breakdown
+
+                p.center.
+                    The following module breaks down each of the values we asked to evaluate to display the countries that scored highest and lowest relevancy in average.
+
+                p.center.
+                    Only countries with a minimum of 50 responses are considered in the following charts.
+
+                ul.countries-breakdowns-list
+
+                    li(v-for='key in keys')
+
+                        label.center
+                            i(:class='"icon-" + key.icon') 
+                            | {{ key.label }}
+
+                        countries-breakdown(:key='key.id')
 
         script(src='/static/js/index.js', type='text/javascript')
