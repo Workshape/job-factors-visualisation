@@ -36,6 +36,13 @@ function next() {
             total = data.stats.responses.completed;
         }
 
+        data.responses = data.responses.map(function(row) {
+            return {
+                id: row.id,
+                answers: row.answers
+            };
+        });
+        
         responses = responses.concat(data.responses);
 
         if (data.stats.responses.showing) {
@@ -47,7 +54,7 @@ function next() {
             fs.writeFileSync('./data/responses.json', JSON.stringify({
                 questions : data.questions,
                 responses : responses
-            }), 'utf8');
+            }, null, 2), 'utf8');
         }
     });
 }
