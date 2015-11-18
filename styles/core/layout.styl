@@ -162,9 +162,25 @@ header
     .inner
         text-align center
         width 100%
-        padding 200px 20px
+        padding 150px 20px 200px
         position relative
         box-sizing border-box
+
+    .bg-icon
+        width 115px
+        height @width
+        color color-white
+        font-size 70px
+        border 2px solid color-white
+        border-radius 100%
+        display block
+        margin auto
+        margin-bottom 30px
+        background rgba(color-white, .2)
+        box-shadow 0 2px 2px 0 rgba(0, 0, 0, .2)
+
+        i
+            line-height @width
 
     .credits
         position absolute
@@ -186,7 +202,7 @@ header
             display block
             margin-right 30px
 
-    h1, h2, h3
+    h1, h2, h3, .bg-icon
         color color-white
         text-shadow 0 1px 2px rgba(#000, .5)
 
@@ -196,4 +212,20 @@ header
 
     h2
         font-size 25px
-        margin-bottom 0
+
+.heading-icon
+    color color-brand
+    width 80px
+    height @width
+    border-radius 100%
+    border 1px solid color-brand
+    font-size 30px
+    background lighten(color-brand, 90%)
+    margin auto
+    text-align center
+    margin-bottom 15px
+    box-shadow 0 2px 0 0 rgba(0, 0, 0, .1)
+    display block
+
+    i
+        line-height @width

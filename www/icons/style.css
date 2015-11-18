@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?opy2q8');
-	src:url('fonts/icomoon.eot?opy2q8#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?opy2q8') format('truetype'),
-		url('fonts/icomoon.woff?opy2q8') format('woff'),
-		url('fonts/icomoon.svg?opy2q8#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?2ogvyf');
+	src:url('fonts/icomoon.eot?2ogvyf#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?2ogvyf') format('truetype'),
+		url('fonts/icomoon.woff?2ogvyf') format('woff'),
+		url('fonts/icomoon.svg?2ogvyf#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,11 +23,23 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-gender:before {
+	content: "\e900";
+}
 .icon-salary:before {
 	content: "\e016";
 }
 .icon-benefits:before {
 	content: "\e017";
+}
+.icon-average:before {
+	content: "\e018";
+}
+.icon-preface:before {
+	content: "\e01e";
+}
+.icon-countries:before {
+	content: "\e024";
 }
 .icon-location:before {
 	content: "\e025";
@@ -44,8 +56,17 @@
 .icon-product:before {
 	content: "\e033";
 }
+.icon-infographic:before {
+	content: "\e038";
+}
+.icon-experience:before {
+	content: "\e039";
+}
 .icon-team:before {
 	content: "\e040";
+}
+.icon-relevance:before {
+	content: "\e045";
 }
 .icon-commute:before {
 	content: "\e04e";
@@ -55,5 +76,17 @@
 }
 .icon-size:before {
 	content: "\e052";
+}
+.icon-facebook:before {
+	content: "\e05d";
+}
+.icon-twitter:before {
+	content: "\e05e";
+}
+.icon-blog:before {
+	content: "\e060";
+}
+.icon-linkedin:before {
+	content: "\e062";
 }
 
