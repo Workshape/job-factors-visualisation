@@ -23,9 +23,32 @@ section
     display block
     position relative
     z-index 1
+    overflow hidden
 
     &:nth-child(odd)
         background color-grey-lightest
+
+.scroll-indicator
+    position absolute
+    left 50%
+    bottom 10px
+    animation scroll-indicator 1s infinite alternate
+    opacity .5
+    text-align center
+    font-size 12px
+
+    &:before
+        content 'Keep Going'
+        color color-brand
+        display block
+        margin-bottom 10px
+        
+    &:after
+        tail(color-brand, 'bottom', 5px)
+        content ''
+
+    @media (max-width: breakpoint-mobile)
+        display none
 
 .loading
     position fixed
@@ -37,15 +60,49 @@ section
     text-align center
     z-index 999
 
-    &:after
+    .inner
         position absolute
-        content 'Loading...'
         color color-brand
-        left 0
         top 50%
         width 100%
-        margin-top -10px
         font-weight 200
+        text-align center
+        transform translateY(-50%)
+        font-size 13px
+
+        &:after
+            content 'Loading...'
+            display block
+
+    .shape
+        @extends $texture-overlay
+        background-size 800% 800%
+        animation bg-gradient 30s infinite alternate
+        width 60px
+        height @width
+        display inline-block
+        position relative
+        mix-blend-mode multiply
+        margin-bottom 10px
+
+        &:before
+            bg-image('loading-mask', 100% 100%, center center, no-repeat)
+            content ''
+            position absolute
+            left 0
+            top 0
+            width 100%
+            height 100%
+
+    .shape-first
+        margin-right -15px
+        opacity .5
+        background-image linear-gradient(90deg, #de20f1, #e89015, #ea243d, #5368bf)
+
+    .shape-second
+        margin-left -15px
+        opacity .5
+        background-image linear-gradient(0deg, #26bd96, #bd4926, #24ceea, #ddea24)
 
 .page-width
     max-width: 900px
@@ -58,35 +115,6 @@ section
 
     .legend
         margin-bottom 40px
-
-@-webkit-keyframes bg-gradient {
-
-    0% {
-        background-position 33% 0%
-    }
-
-    50% {
-        background-position 68% 100%
-    }
-
-    100% {
-        background-position:33% 0%
-    }
-
-}
-
-@-webkit-keyframes bg-texture {
-
-    0% {
-        background-position 0 0
-    }
-
-    100% {
-        background-position 800px 339px
-    }
-
-}
-
 
 header
     @extends $texture-overlay
