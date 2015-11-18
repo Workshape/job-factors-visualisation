@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node node_modules/gulp/bin/gulp.js build",
+    "postinstall": "npm run build",
     "start": "node ./server/index.js",
     "gather": "./bin/gather",
     "build": "jade views -o www; browserify -v -t babelify -t browserify-plain-jade lib/index.js -o www/js/index.js; stylus -u nib -u griddy styles/index.styl -o www/css/styles.css",
