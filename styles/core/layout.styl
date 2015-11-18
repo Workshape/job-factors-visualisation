@@ -140,6 +140,25 @@ header
     overflow hidden
     position relative
 
+    .half-sentence
+        min-width 30%
+        display inline-block
+        padding 0 10px
+        box-sizing border-box
+
+        &.first
+            text-align right
+
+        &.last
+            text-align left
+
+    .counter-section
+        smooth-font()
+        color color-white
+
+    .buttons-section
+        margin-top 20px
+
     &:after
         opacity .15
         mix-blend-mode multiply
@@ -238,6 +257,31 @@ header
     i
         line-height @width
 
+ul.total-counter
+    debullet()
+    border-radius()
+    padding 2px
+    background rgba(color-white, .2)
+    display inline-block
+    margin-bottom 0
+
+    li
+        border-radius()
+        smooth-font()
+        padding 12px
+        line-height 25px
+        display inline-block
+        margin-left 1px
+        font-family Monaco, mono
+        background-color #212121
+        border-bottom 2px solid #111
+        background-image linear-gradient(rgba(color-white, .05), rgba(color-white, 0))
+        color color-white
+        font-size 13px
+
+        &:first-child
+            margin-left 0
+
 @media (max-width: breakpoint-mobile)
 
     .scroll-indicator
@@ -256,3 +300,9 @@ header
         .logo
             transform scale(.6)
             margin-bottom -20px
+
+        .half-sentence
+            display block
+
+            &.first, &.last
+                text-align center

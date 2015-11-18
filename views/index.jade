@@ -32,6 +32,23 @@ html
                     h1 Living Infographic
                     h2 The most important job factors for Developers
 
+                    .counter-section
+
+                        .half-sentence.first Based on 
+
+                        ul.total-counter
+                            li(v-for='digit in totalResponses.toString()') {{ digit }}
+
+                        .half-sentence.last  responses so far
+
+                    .buttons-section
+
+                        button.button-respond Respond
+
+                        button.button-twitter Tweet
+
+                        button.button-facebook Share
+
                 .credits(data-role='credits')
 
                     h3
