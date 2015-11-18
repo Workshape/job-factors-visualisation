@@ -62,10 +62,8 @@ section
 
     .inner
         position absolute
-        color color-brand
         top 50%
         width 100%
-        font-weight 200
         text-align center
         transform translateY(-50%)
         font-size 13px
@@ -73,12 +71,20 @@ section
         &:after
             content 'Loading...'
             display block
+            position absolute
+            top 50%
+            left 50%
+            color color-white
+            transform translate(-50%, -50%) rotate(-45deg)
+            opacity .8
+            font-size 15px
+            font-weight 100
 
     .shape
         @extends $texture-overlay
         background-size 800% 800%
         animation bg-gradient 30s infinite alternate
-        width 60px
+        width 200px
         height @width
         display inline-block
         position relative
@@ -95,12 +101,12 @@ section
             height 100%
 
     .shape-first
-        margin-right -15px
+        margin-right -55px
         opacity .5
         background-image linear-gradient(90deg, #de20f1, #e89015, #ea243d, #5368bf)
 
     .shape-second
-        margin-left -15px
+        margin-left -55px
         opacity .5
         background-image linear-gradient(0deg, #26bd96, #bd4926, #24ceea, #ddea24)
 
