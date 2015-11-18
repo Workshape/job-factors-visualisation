@@ -17,6 +17,13 @@ body
         z-index 9999999
         pointer-events none
 
+.fade-transition
+    transition opacity 1s
+    opacity 1
+
+.fade-enter, .fade-leave
+    opacity 0
+
 section
     background color-white
     padding 100px 20px
@@ -47,9 +54,6 @@ section
         tail(color-brand, 'bottom', 5px)
         content ''
 
-    @media (max-width: breakpoint-mobile)
-        display none
-
 .loading
     position fixed
     width 100%
@@ -69,27 +73,31 @@ section
         font-size 13px
 
         &:after
-            content 'Loading...'
+            content 'Loading'
             display block
             position absolute
             top 50%
             left 50%
             color color-white
-            transform translate(-50%, -50%) rotate(-45deg)
+            transform translate(-50%, -50%)
             opacity .8
-            font-size 15px
-            font-weight 100
+            font-size 10px
+            text-transform uppercase
 
     .shape
         @extends $texture-overlay
         background-size 800% 800%
-        animation bg-gradient 30s infinite alternate
+        animation bg-gradient 30s infinite alternate, full-rotation 10s linear infinite
         width 200px
         height @width
         display inline-block
         position relative
-        mix-blend-mode multiply
+        mix-blend-mode darken
         margin-bottom 10px
+
+        &:after
+            animation bg-texture 50s infinite linear, buzz 2s infinite linear
+            opacity .1
 
         &:before
             bg-image('loading-mask', 100% 100%, center center, no-repeat)
@@ -102,12 +110,12 @@ section
 
     .shape-first
         margin-right -55px
-        opacity .5
+        opacity .8
         background-image linear-gradient(90deg, #de20f1, #e89015, #ea243d, #5368bf)
 
     .shape-second
         margin-left -55px
-        opacity .5
+        opacity .8
         background-image linear-gradient(0deg, #26bd96, #bd4926, #24ceea, #ddea24)
 
 .page-width
@@ -229,3 +237,22 @@ header
 
     i
         line-height @width
+
+@media (max-width: breakpoint-mobile)
+
+    .scroll-indicator
+        display none
+
+    header
+        padding 30px 0
+
+        .inner, .credits
+            padding 30px
+
+        .credits
+            position static
+            transform none
+
+        .logo
+            transform scale(.6)
+            margin-bottom -20px

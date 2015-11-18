@@ -167,3 +167,33 @@ bar-chart-color(base-color = color-brand)
 
     .bars li:nth-child(5) .bar
         bar-chart-color(color-seniority-5)
+
+@media (max-width: breakpoint-mobile)
+
+    ul.labels, ul.nav
+        
+        li
+            padding 0
+            padding-bottom 55px
+
+            i
+                font-size 20px
+
+        label
+            transform rotate(90deg)
+            width 60px
+            transform-origin left top
+            position absolute
+            left 50%
+            top 30px
+            margin-left 7px
+            text-align left
+
+    .bar span
+        transform rotate(90deg)
+        margin-bottom 10px
+
+    .gender-bar-chart
+
+        .bar span
+            opacity 0

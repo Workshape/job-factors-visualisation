@@ -3,7 +3,7 @@
     ul.nav
         li(v-for='k in keys', :class='{ active: key === k.id }', v-on:click='key = k.id')
             i(:class='"icon-" + k.id')
-            | {{ k.label }}
+            label {{ k.label }}
             span.count(v-if='active', :style='{ "background": getColor(active.name, k.id) }') {{ active.data[k.id].average | decimals 2 }}
 
     .mode-switcher

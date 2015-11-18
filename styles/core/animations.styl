@@ -1,4 +1,4 @@
-@-webkit-keyframes bg-gradient {
+@keyframes bg-gradient {
 
     0% {
         background-position 33% 0%
@@ -14,7 +14,19 @@
 
 }
 
-@-webkit-keyframes bg-texture {
+@keyframes full-rotation {
+
+    0% {
+        transform rotate(0deg)
+    }
+
+    100% {
+        transform rotate(360deg)
+    }
+
+}
+
+@keyframes bg-texture {
 
     0% {
         background-position 0 0
@@ -34,6 +46,18 @@
     
     100% {
         margin-bottom: 0
+    }
+
+}
+
+@keyframes fade-in {
+
+    0% {
+        opacity 0
+    }
+
+    100% {
+        opacity 100%
     }
 
 }

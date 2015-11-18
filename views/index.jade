@@ -9,14 +9,17 @@ html
         link(href='https://fonts.googleapis.com/css?family=Raleway:400,500,300,200,100', rel='stylesheet', type='text/css')
         link(href='/static/icons/style.css', rel='stylesheet', type='text/css')
 
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+
     body
 
-        .loading(v-if='!ready'): .inner
+        .loading(v-if='!ready', transition='fade'): .inner
 
             .shape.shape-first
             .shape.shape-second
 
-        template(v-if='ready')
+        .page(v-if='ready', transition='fade')
 
             header(fixed-dist, full-height)
 
@@ -121,7 +124,7 @@ html
                         | Female 
                         span ({{ genderDistribution[2] }})
 
-                interest-bar-chart(
+                .gender-bar-chart: interest-bar-chart(
                     :filters='[ { gender: "Male" }, { gender: "Other" }, { gender: "Female" } ]',
                     :classes='[ "gender-male", "gender-other", "gender-female" ]'
                     )

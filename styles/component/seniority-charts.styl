@@ -7,10 +7,6 @@
         padding 20px
         box-sizing border-box
 
-        @media (max-width: breakpoint-mobile)
-            width 100%
-            padding 20px 0
-
     label
 
         i
@@ -36,3 +32,15 @@
 
         .chart-line
             stroke-width 2
+
+    @media (max-width: breakpoint-mobile)
+    
+        ul.labels
+            padding-bottom 50px
+
+            label
+                width 80px
+
+        .chart
+            width 100%
+            padding 20px 0
