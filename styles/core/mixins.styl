@@ -60,3 +60,11 @@ bg-image(image-name, size = false, position = false, repeat = false, ext = 'png'
     if ext != 'svg'
         @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 1.5)
             background-image: url(assets-dir + image-name + '@2x.' + ext + '?v-' + cacheId)
+
+noselect()
+    -webkit-touch-callout none
+    -webkit-user-select none
+    -khtml-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none

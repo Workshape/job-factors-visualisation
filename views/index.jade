@@ -196,16 +196,16 @@ html
 
                         countries-breakdown(:key='key.id')
 
+            footer(full-height)
+
+                h3
+                    | Made by
+                    a.logo(href='http://www.workshape.io', target='_blank')
+
+                .buttons-section
+
+                    a.button.button-respond(href='https://workshape.typeform.com/to/#{typeformId}', target='_blank') Respond
+                    a.button.button-twitter(v-on:click='tweet()') Tweet
+                    a.button.button-facebook(v-on:click='fbshare()') Share
+
         script(src='/static/js/index.js', type='text/javascript')
-
-    footer(full-height)
-
-        h3
-            | Made by
-            a.logo(href='http://www.workshape.io', target='_blank')
-
-        .buttons-section
-
-            a.button.button-respond(href='https://workshape.typeform.com/to/#{typeformId}', target='_blank') Respond
-            a.button.button-twitter(v-on:click='tweet()') Tweet
-            a.button.button-facebook(v-on:click='fbshare()') Share
