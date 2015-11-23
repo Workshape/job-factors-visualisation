@@ -9,6 +9,7 @@ var app = express(),
 
 app.get('/', require('./controller/main'));
 app.get('/api/responses', require('./controller/responses'));
+app.get('/api/config', require('./controller/config'));
 app.use('/static', express.static('./www'));
 app.use(compression());
 

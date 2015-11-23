@@ -3,5 +3,6 @@
     "typeform" : {
         "key" : "TYPEFORM_KEY",
         "id"  : "TYPEFORM_ID"
-    }
+    },
+    "baseUrl"  : "BASE_URL"
 }

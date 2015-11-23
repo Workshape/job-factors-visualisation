@@ -1,3 +1,5 @@
+- var baseUrl = process.env.BASE_URL;
+
 doctype html
 
 html
@@ -18,11 +20,12 @@ html
         meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
 
         //- OpenGraph
+        meta(property='og:url', content='baseUrl')
         meta(property='og:type', content='website')
         meta(property='og:site_name', content='The Most Important Job Factors for Developers')
         meta(property='og:title', content='A Living Infographic by Workshape.io')
         meta(property='og:description', content='We gathered data from over 10k developers on how they value different aspects of a job. This is a living infographic to show the results.')
-        meta(property='og:image', content='/assets/share-cover.png')
+        meta(property='og:image', content='#{baseUrl}/assets/share-cover.png')
         meta(property='og:image:width', content='1200')
         meta(property='og:image:height', content='630')
 
@@ -51,17 +54,15 @@ html
                         .half-sentence.first Based on 
 
                         ul.total-counter
-                            li(v-for='digit in totalResponses.toString()') {{ digit }}
+                            li(v-for='digit in totalResponses.toString()', track-by='$index') {{ digit }}
 
                         .half-sentence.last  responses so far
 
                     .buttons-section
 
-                        button.button-respond Respond
-
-                        button.button-twitter Tweet
-
-                        button.button-facebook Share
+                        a.button.button-respond(:href='"https://workshape.typeform.com/to/" + config.typeform_id', target='_blank') Respond
+                        a.button.button-twitter(v-on:click='tweet()') Tweet
+                        a.button.button-facebook(v-on:click='fbshare()') Share
 
                 .credits(data-role='credits')
 

@@ -3,5 +3,6 @@
     "typeform" : {
         "key" : null,
         "id"  : null
-    }
+    },
+    "baseUrl"  : "http://www.foo.bar"
 }
