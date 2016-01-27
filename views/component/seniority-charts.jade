@@ -1,5 +1,15 @@
 .seniority-charts
 
+    p.center.
+        The developers in our dataset are distributed in the following levels 
+        of seniority:
+
+    .bar-chart-seniority: bar-chart(
+        v-if='distribution',
+        :values='distribution',
+        :labels='labels'
+        )
+
     p.center(v-if='changes')
         | By observing slight trend differences over several levels of seniority in our dataset we can observe that  
         template(v-for='(i, change) in changes.gains | orderBy "diff"')
@@ -12,17 +22,6 @@
             template(v-if='i < changes.losses.length - 2') , 
             template(v-if='i === changes.losses.length - 2')  and 
         |  tend to become less important.
-
-    p.center.
-        In order to provide a more exhaustive understanding of our 
-        demographic, here's how our data set distributed in years of 
-        experience:
-
-    .bar-chart-seniority: bar-chart(
-        v-if='distribution',
-        :values='distribution',
-        :labels='labels'
-        )
 
     p.center.
         And here's a breakdown of each factor we asked to rate:

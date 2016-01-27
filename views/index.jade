@@ -1,5 +1,5 @@
-- var baseUrl = process.env.BASE_URL;
-- var typeformId = process.env.TYPEFORM_ID;
+- var baseUrl = process.env.BASE_URL || "http://jobfactors.workshape.io/";
+- var typeformId = process.env.TYPEFORM_ID || "PrMLrh";
 
 doctype html
 
@@ -108,7 +108,65 @@ html
 
                 i.heading-icon: i.icon-average
 
-                h2.center Average Ratings
+                h2.center Dataset
+
+                p.center.
+                    In the survey, we asked developers to rate on a scale from 1 to 10 the importance for them of the following job factors (Where 1 is Irrelevant and 10 Important):
+
+                ol.questions
+
+                    li
+                        i.icon-salary
+                        strong Salary
+
+                    li
+                        i.icon-stack
+                        strong Tech Stack
+                        em The technologies and programming languages you will need to work with.
+
+                    li
+                        i.icon-title
+                        strong Job Definition
+                        em What the job entails and how you will be spending your time.
+
+                    li
+                        i.icon-team
+                        strong Team Members
+                        em What the team around you are like.
+
+                    li
+                        i.icon-industry
+                        strong Industry
+                        em What business sector the company operates in.
+
+                    li
+                        i.icon-product
+                        strong Product
+                        em What the product is like.
+
+                    li
+                        i.icon-options
+                        strong Stock Options
+
+                    li
+                        i.icon-location
+                        strong Location
+                        em The location you will work out of
+
+                    li
+                        i.icon-commute
+                        strong Commute
+                        em How long your journey will be
+
+                    li
+                        i.icon-size
+                        strong Company Size
+                        em How many employees the company has.
+
+                    li
+                        i.icon-benefits
+                        strong Benefits + Perks
+                        em Inclusion of Pension, Medical Care, Car, etc.
 
                 p.center.
                     Below are displayed the average ratings (Scored 1 to 10) split by category between all {{ totalResponses }} developers that completed the questionnaire.
@@ -176,6 +234,11 @@ html
                 p.center.
                     The following interactive map helps you explore geographical trends of relevance based om the average values
                     we've collected between all nations with 50+ responses.
+
+                p.center: strong.
+                    You can click on each point of the legend to isolate them, or in the individual countries to see their stats.
+
+                br
 
                 relevance-map(key='salary')
 

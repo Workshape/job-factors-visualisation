@@ -40,19 +40,31 @@ section
     left 50%
     bottom 10px
     animation scroll-indicator 1s infinite alternate
-    opacity .5
+    opacity .8
     text-align center
     font-size 50px
     width 0
+    color color-brand
 
     &:before
         content '>'
         transform rotate(90deg) scaleX(.7)
         font-family font-special
-        color color-brand
         display block
         margin-bottom 10px
         text-align center
+
+    &:after
+        position absolute
+        bottom 100%
+        left 50%
+        transform translateX(-50%)
+        white-space nowrap
+        font-size 18px
+        content 'Keep scrolling'
+        font-family font-special
+        text-transform uppercase
+        margin-bottom -10px
 
 .loading
     position fixed
@@ -130,6 +142,29 @@ section
     .legend
         margin-bottom 40px
 
+ol.questions
+    color rgba(color-black, .6)
+    margin-bottom 50px
+
+    li
+        margin-bottom 20px
+
+    i
+        font-size 25px
+        opacity .4
+        margin-right 20px
+        margin-left 10px
+        line-height 0
+        top 5px
+
+    em, strong, i
+        color color-black
+        
+    em
+        display inline-block
+        margin-left 10px
+        color lighten(color-black, 30)
+
 header
     @extends $texture-overlay
     background-color #222
@@ -140,7 +175,7 @@ header
     overflow hidden
     position relative
 
-    .scroll-indicator:before
+    .scroll-indicator
         color color-white
 
     .half-sentence
