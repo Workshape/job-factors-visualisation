@@ -5,5 +5,7 @@ www/**.html
 www/css/styles.css
 www/js/index.js
 npm-debug.log
-config/local.json
+config/*
+!config/default.json
+!config/custom-environment-variables.json
 data/*.json
