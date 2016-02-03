@@ -209,6 +209,8 @@ html
 
                 seniority-charts(key='salary')
 
+                .scroll-indicator
+
             section.gender-distribution(fixed-dist): .page-width
 
                 i.heading-icon: i.icon-gender
@@ -251,6 +253,8 @@ html
                     :classes='[ "gender-male", "gender-other", "gender-female" ]'
                     )
 
+                .scroll-indicator
+
             section(fixed-dist, full-height): .page-width
 
                 i.heading-icon: i.icon-relevance
@@ -267,6 +271,8 @@ html
                 br
 
                 relevance-map(key='salary')
+
+                .scroll-indicator
 
             section(fixed-dist, full-height): .page-width
 
@@ -289,6 +295,8 @@ html
                             | {{ key.label }}
 
                         countries-breakdown(:key='key.id')
+
+                .scroll-indicator
 
             footer(full-height)
 
